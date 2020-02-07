@@ -1,0 +1,59 @@
+<html>
+    <head>
+    </head>
+    <body>    
+        <table>
+        <thead>
+            <tr>
+                <th>Amount</th>
+                <th>From currency</th>
+                <th>To currency</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+           <td> <input type="number" name="" id="Amount" ></td>
+           <td> <select name="" id="from">
+                <option value="VND">VietNamDong</option>
+                <option value="USD"> USD</option>
+                
+                </select></td>
+            <td><select name="" id="to">
+                <option value="VND">VietNamDong</option>
+                <option value="USD">USD</option>
+                
+            </select></td>
+            
+        
+              
+           <td><input type="button" value="Convert" onclick="convert()"></td>   
+
+        </tr>
+        </tbody>
+    </table>
+    <div id="ketqua" style="color: blue;">Result</div>
+        <script>
+            function convert(){
+                let a = document.getElementById('Amount').value;
+                // document.getElementById("ketqua").innerHTML=a * 23000 + "VND"
+                let from = document.getElementById('from').value;
+                let to = document.getElementById('to').value;
+                if(from=="VND" && to =="USD"){
+                    document.getElementById("ketqua").innerHTML=a / 23000 + "USD";
+                }
+                if (from =="USD" && to =="VND"){
+                    document.getElementById("ketqua").innerHTML=a*23000 + "VND";    
+                }
+                if (from =="VND" && to == "VND"){
+                    document.getElementById("ketqua").innerHTML=a + "VND";
+                }
+                if (from == "USD" && to == "USD"){
+                    document.getElementById("ketqua").innerHTML=a + "USD";
+                }
+
+            }   
+         
+        </script>       
+       
+    </body>
+</html>
