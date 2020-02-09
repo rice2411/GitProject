@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caculator</title>
+    <link rel="stylesheet" href="maytinh.css">
+</head>
+<body>
+    <h2>Caculator</h2>
+    <table>
+        <thead>
+            <tr>
+                <th><input type="number" id="a">
+                    <input type="number" id="b">
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input type="button" id="cong" value="Addition(+)" class="q" onclick="convert()">
+                    <input type="button" id="tru"  value="Subtraction(-)"class="q" onclick="convert1()">
+                    <input type="button" id="nhan" value="Multiplication(x)"class="q" onclick="convert2()">
+                    <input type="button" id="chia" value="Division(/)"class="q" onclick="convert3()">
+                </td>             
+            </tr>
+        </tbody>
+    </table>
+    <div id="ketqua" style="color: blue;" >Result</div>
+    <script>
+            
+            
+            function convert() {
+            let a = parseInt(document.getElementById('a').value);
+            let b = parseInt(document.getElementById('b').value);
+            document.getElementById('ketqua').innerHTML = (a+b);
+            }
+            function convert1() {
+            let a = parseInt(document.getElementById('a').value);
+            let b = parseInt(document.getElementById('b').value);
+            document.getElementById('ketqua').innerHTML = (a-b);
+            }
+            function convert2() {
+            let a = parseInt(document.getElementById('a').value);
+            let b = parseInt(document.getElementById('b').value);
+            document.getElementById('ketqua').innerHTML = (a*b);
+            }
+            function convert3() {
+            let a = parseInt(document.getElementById('a').value);
+            let b = parseInt(document.getElementById('b').value);
+            document.getElementById('ketqua').innerHTML = (a/b);
+            }
+        
+
+          
+    </script>
+</body>
+</html>
