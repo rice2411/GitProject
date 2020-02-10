@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giá điện</title>
+</head>
+<body>
+    <script>
+        var a = parseInt(prompt('Nhập chỉ số điện bạn đã xài (KW/h)'));
+        var b;
+        if (a > 0 && a <= 50){
+            alert('Tiền điện của bạn là' + ( b=a*1678) + 'VND')
+        } else if ( a >= 51 && a <= 100){
+            alert('Tiền điện của bạn là' + (b=a*1734) + 'VND')
+        } else if ( a >= 101 && a <= 200){
+            alert('Tiền điện của bạn là' + (b=a*2014)+ 'VND')
+        }else if ( a >= 201 && a <=300){
+            alert('Tiền điện của bạn là' + (b=a*2536 ) + 'VND')
+        }else if ( a >= 301 && a <= 400){
+            alert('Tiền điện của bạn là' + (b=a*2834) + 'VND')
+        } else (
+            alert('Tiền điện của bạn là' + (b=a*2927) + 'VND')
+        )
+
+    </script>
+</body>
+</html>

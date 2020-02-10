@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VAT</title>
+</head>
+<body>
+    <script>
+        var ttnhap = parseInt(prompt('Nhập tổng thu nhập một năm của bạn'))
+        var ckdmien = parseInt(prompt('Nhập tổng các khoản được miễn của bạn'))
+        var ckgtru = parseInt(prompt('Nhập các khoản giảm trừ của bạn'))
+        var tncthue= ttnhap - ckdmien;
+        var tntthue= tncthue - ckgtru;
+        var TTNCN
+        if (tntthue < 60000000) {
+            alert('Bạn không cần nộp thuế TNCN')
+            
+        }else
+        if ( tntthue == 60000000){
+            alert('Thuế thu nhập cá nhân của bạn là ' + (TTNCN=tntthue*5/100))
+        } else if ( tntthue > 60000000 && tntthue <= 120000000){
+            alert('Thuế thu nhập cá nhân của bạn là ' + (TTNCN=tntthue*10/100))
+        } else if ( tntthue > 120000000 && tntthue <= 216000000){
+            alert('Thuế thu nhập cá nhân của bạn là ' + (TTNCN=tntthue*15/100))
+        } else if ( tntthue > 216000000 && tntthue <= 384000000){
+            alert('Thuế thu nhập cá nhân của bạn là ' + (TTNCN=tntthue*20/100))
+        } else if ( tntthue > 384000000 && tntthue <= 624000000){
+            alert('Thuế thu nhập cá nhân của bạn là ' + (TTNCN=tntthue*25/100))
+        } else if ( tntthue > 624000000 && tntthue <= 960000000){
+            alert('Thuế thu nhập cá nhân của bạn là ' + (TTNCN=tntthue*30/100))
+        } else (
+            alert('Thuế thu nhập cá nhân của bạn là ' + (TTNCN=tntthue*35/100))
+        )
+    </script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diện tích tam giác vuông</title>
+</head>
+<body>
+    <script>
+        var a=parseInt(prompt('Nhập cạnh kề a'));
+        var b=parseInt(prompt('Nhập cạnh kề b'));
+        var c = Math.sqrt((Math.pow(a,2))+Math.pow(b,2));
+        var p = (a+b+c)/2;
+        var s=Math.sqrt((p*(p-a)*(p-b)*(p-c)));
+        alert('Diện tích tam giác vuông có 2 cạnh kề là ' + s);
+    </script>
+</body>
+</html>
