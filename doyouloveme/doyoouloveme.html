@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>You must love me</title>
+</head>
+<body>
+    <h1 style="position: absolute; left: 550px; top: 200px;">Do you love me</h1>
+    <input type="button" value="YES" onclick="yesClick()" style="position: absolute; left:590px; top:260px">
+    <input type="button" value="NO" id ="no"onmouseover="noClick()" style="position: absolute; left:660px;top: 260px;">
+    <script>
+        function yesClick(){
+        alert('You are right!');
+        }
+        function noClick(){
+            var x = Math.round(Math.random() * window.innerWidth);
+            var y = Math.round(Math.random()* window.innerHeight);
+            document.getElementById('no').style.left = x + 'px';
+            document.getElementById('no').style.top = y + 'px';
+        }
+    </script>
+</body>
+</html> 
