@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phone BIll</title>
+</head>
+<body>
+    <script>
+        let a = 25000;
+        let s;
+        var t=parseInt(prompt('Nhập tông thời gian các cuộc gọi(phút)'))
+        if(t>=0 && t<=50){
+            s=600
+            alert('Tiền cước của bạn là '+ (t=a+s))
+        } else if(t>50 && t <= 200){
+            s=400
+            alert('Tiền cước của bạn là '+ (t=a+s))
+        } else if ( t > 200){
+           s=200
+           alert('Tiền cước của bạn là '+ (t=a+s))
+        } else {
+            alert('Giá trị bạn nhập không hợp lệ')
+        }
+    </script>
+</body>
+</html>
