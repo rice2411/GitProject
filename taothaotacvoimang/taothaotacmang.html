@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array</title>
+</head>
+<body>
+    
+    <table border="1">
+        <thead>
+            <tr>
+                <th>
+                    WELCOME TO ARRAY
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <input type="text" id='enter'>
+                    <input type="button" value="Add" onclick="add()">
+                    <input type="button" value="Display" onclick="display()">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div id='ketqua'>Result</div>
+                </td>
+            </tr>
+        </tbody>
+    </table>    
+    
+    
+    <script>
+        let x=0;
+        let array = Array();
+        function add(){
+            array[x] = document.getElementById('enter').value;
+            
+            x++;
+            document.getElementById("enter").value ='';
+        }
+        function display(){
+            let e=''
+            for ( let i =0 ; i < array.length; i++){
+                e +="Element " + i + " = "+ array[i] + '<br>';
+            } document.getElementById('ketqua').innerHTML= e;   
+        }
+    </script>
+    <style>
+       body{
+           background-color:cadetblue;
+       }
+        table{
+            
+            margin-top: 50px;
+            margin-left: 500px;
+        }
+        
+    </style>
+</body>
+</html>
