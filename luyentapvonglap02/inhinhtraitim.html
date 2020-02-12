@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html >
+<head>
+    
+    <title>Heart</title>
+</head>
+<body>
+    <h1> Heart</h1>
+    <script>
+        let row =0;
+        let col=0;
+        let  a = 2
+        let b = 15
+        let c = 5  
+        for(row = 3;row<5;row++){
+            for(col=0 ;col<26; col ++){
+                if(col== a || col == b){  
+                     for(i = 0; i < c ; i++) {              
+                      document.write('*')
+                    }                                           
+            } else {
+                document.write('&ensp;')
+            }
+            } 
+            a--
+            b--
+            c=c+1   
+            document.write('<br>')   
+        }
+        for(row; row < 6; row ++){
+            for(col=0;col<26; col ++){
+                document.write('*')
+            }
+            document.write('<br>')
+        }
+        let x = 1
+        let y = 25
+        
+        for(row; row < 20; row++){
+            for(col=1;col<26; col ++){
+                if(col>= x && col <= y){
+                     document.write('*')                                                                        
+            } else{
+                document.write("&ensp;")
+            }
+            }    
+            x++
+            y--
+            
+            document.write('<br>')
+        }
+        
+
+        
+            
+    </script>
+    <style>
+        
+       
+    </style>
+</body>
+</html>
+             

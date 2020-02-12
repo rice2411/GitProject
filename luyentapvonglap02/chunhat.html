@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chữ Nhật</title>
+</head>
+<body>
+    <script>
+        let size =10;
+        let row = 0; 
+        let col =0;
+        for(row=0;row<4;row++){
+            if(row==0 || row==(3)){
+                for(col = 0; col < size; col++){
+                    document.write('*')
+                }
+            }else{
+                for(col = 0 ; col < size; col++){
+                    if(col==0 || col == (size-1)){
+                        document.write('*')
+                    }else{
+                        document.write('&ensp;')
+                    }
+                }
+            }
+            document.write('<br>')
+        }
+    </script>
+</body>
+</html>
