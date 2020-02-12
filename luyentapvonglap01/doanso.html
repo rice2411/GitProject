@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess Number</title>
+</head>
+<body>
+    <h1>GUESS NUMBER</h1>
+    <input type="button"  onclick="play()" value="PLAY">
+    <script>
+        function play(){
+        alert('Enter your Limited Number you want')
+        let count=0
+        var a = parseInt(prompt('From'))                           
+        var b = parseInt(prompt("To"))
+        var c = Math.floor(Math.random() * b) + a;        
+        var d = parseInt(prompt('Let guess'))
+        var i=0, n=2;
+        for(;i<n;i++){
+            while(count<3){
+            if(c==d){
+            alert('Congratulations You Are A Winner')
+        } else{
+            alert('Oops You are wrong!' )
+            var d = parseInt(prompt('Let try one more time'))
+            count++
+        }
+        }
+        }alert('You lose!' )
+      
+        }
+    </script>
+    <style>
+        body{
+            background-color: blueviolet;
+        }
+        h1{
+            text-align: center;
+        }
+        input {
+            
+            margin-top: 50px    ;
+            margin-right: 200px;
+            margin-bottom: 200px;
+            margin-left: 520px;
+            height: 300px;
+            width: 300px;
+        }
+    </style>
+</body>
+</html>

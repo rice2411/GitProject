@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fibonacci</title>
+</head>
+<body>
+    <script>
+            var s;
+            var a;
+            var n = parseInt(prompt('Nhập số lượng số Fibonacci'))
+            for ( i=0; i<=n; i++){
+             a = (1/Math.sqrt(5))*(Math.pow(((1+Math.sqrt(5))/2),i)-Math.pow(((1-Math.sqrt(5))/2),i))
+              if(a%5==0){
+                  document.write('Số đầu tiên chia hết cho 5 trong dãy Fibonacci là ' + a)
+              }  
+              break;       
+             }
+             
+    </script>
+</body>
+</html>
