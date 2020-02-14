@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let s=0;
+        let a= new Array();
+        let x=+prompt('Bạn muốn mảng có bao nhiều phần tử?')
+        let y=+prompt('Bạn muốn giá trị tối đa của mảng là bao nhiêu?')
+        let j=0       
+        do{
+            let t = Math.floor(Math.random()*y );
+            if(a.indexOf(t) == -1)
+            {
+                a[j]=t;
+                j++;
+            }
+        }
+        while(j < x)
+        let max = a[0]
+        document.write('Các phần tử của mảng là' + a +"<br>")
+        for(let i =0; i<a.length;i ++){
+            if(a[i]>max){
+                max = a[i]
+            }
+            s=(s+a[i])/x
+        }
+        document.write('Giá trị lớn nhất trong mảng là ' + max + "<br>")
+        document.write('Trung bình cộng của các phần tử tỏng mảng là ' + s )
+
+    </script>
+</body>
+</html>

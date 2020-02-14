@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let a = new Array();
+        let b = new Array();
+        let c= new Array();
+        let s, z
+        for(let i = 0 ; i < 10; i ++){
+            a[i]=+prompt('Nhập phần tử thứ'+ (z=i+1) +' mảng a')
+
+        }
+        for(let i = 0; i <10; i++){
+            b[i]=+prompt('Nhập phần tử thứ'+ (s=i+1) +' mảng b')
+        }
+        document.write('Mảng a là ' + a +"<br>")
+        document.write('Mảng b là ' + b +'<br>')
+        c=a.concat(b)
+        document.write('Mảng c là mảng nối 2 mảng a và b: ' + c)
+    </script>
+</body>
+</html>

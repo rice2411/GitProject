@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        let a = new Array()   
+        let j = 0;
+        do{
+            let t = Math.floor(Math.random()*20 );
+            if(a.indexOf(t) == -1)
+            {
+                a[j]=t;
+                j++;
+            }
+        }
+        while(j < 10)
+        document.write('Các phần tử của mảng là ' +a+ "<br>")
+        let max = a[0]
+        let z
+        for(let x = 1; x<a.length;x++){
+            if(a[x]>max){
+                max = a[x]
+                z=x
+            }
+        }
+        document.write('Phần tử lớn nhất của mảng là ' + max + " tại ví trí "+ z) 
+    </script>
+</body>
+</html>

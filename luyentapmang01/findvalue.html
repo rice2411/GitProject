@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let a = new Array()
+        let i = 0;
+        do {
+            let t = Math.floor(Math.random()*20 )
+            if(a.indexOf(t) == -1)
+             {
+                a[i]=t
+                i++
+             }
+
+        } while(i<10)
+        document.write('Array has ' + a + "<br>")
+        let b=+prompt('Enter you value')
+        let flag=false
+        for(let c = 0 ; c < a.length; c++){
+            if(a.indexOf(b)!=-1){
+                document.write(b + " is in the array")
+                flag=true;
+                break
+            }                 
+        }
+        if(flag==false){
+            document.write(b +' is not in array')
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let a = new Array()
+        for(let i = 0; i < 10; i++){
+            a[i]=+prompt('Nhập giá trị cho mảng')
+        }
+        document.write('Mảng trước khi sắp xếp ' + a + "<br>")
+        let b
+        for (let i = 0; i < a.length; i++){
+            for(let j = i+1; j < a.length; j ++ ){
+                if(a[i] < a[j]){
+                    b=a[i];
+                    a[i]=a[j]
+                    a[j]=b
+                }
+            }
+        }
+        document.write('Mảng sau khi sắp xếp là ' + a)
+    </script> 
+</body>
+</html>
