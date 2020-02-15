@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Choose array from 1 to 4 with syntax arrX</p>
+    <input type="text" placeholder="Ex: 1" id="enter">
+    <input type="button" onclick="find()" value="Click">
+    <div id="ketqua">Result</div>
+    
+    <script>
+        let arr1= [3, 5, 1, 8, -3, 7, 8]
+        let arr2= [7, 12, 6, 9, 20, 56, 89]
+        let arr3= []
+        let arr4= [0, 0, 0, 0, 0, 0]
+       
+        function findMin(arr){
+            let min = arr[0]
+            for(let i = 0; i < arr.length; i++){
+                if(arr[i]<min){
+                    min = arr[i]
+                }
+            }
+            return min;
+        }
+       
+        function find(){
+            let selected= +document.getElementById('enter').value;
+            let min = 0;
+            switch (selected) {
+                case 1 : {
+                    min = findMin(arr1);
+                    break;
+                }
+                case 2:{
+                    min = findMin(arr2);
+                    break;
+                }
+                case 3:{
+                    min = findMin(arr3);
+                    break;
+                }
+                case 4: {
+                    min = findMin(arr4);
+                    break;
+                }
+            }
+            document.getElementById('ketqua').innerHTML="The minimum value in array"+ selected+ " is "+ min
+        }
+    </script>
+</body>
+</html>
