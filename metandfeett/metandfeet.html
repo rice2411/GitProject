@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <th></th>
+            <th>From</th>
+            <th>To</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input type="number" id="enter" placeholder="Ex: 30"></td>
+                <td> <select name="" id="from">
+                    <option value="meters">Meters</option>
+                    <option value="feet">Feet</option>
+                </select> </td>
+                <td> <select name="" id="to">
+                    <option value="feet">Feet</option>
+                    <option value="meters">Meters</option>
+                </select> </td>
+                <td><input type="button" value="Convert" onclick="convert()"></td>
+            </tr>
+            <tr>
+                <td><div id ="ketqua">Result</div></td>
+            </tr>
+        </tbody>
+        <script>
+            function convert(){
+                let a = document.getElementById("enter").value;
+                let from = document.getElementById('from').value;
+                let to = document.getElementById('to').value;
+                if(from=="meters" && to=='feet'){
+                    document.getElementById("ketqua").innerHTML=a*3.279 
+                }
+                if(from=="feet" && to =="meters"){
+                    document.getElementById('ketqua').innerHTML=a*0.305;
+                }
+                if(from=="feet" && to =="feet"){
+                    document.getElementById('ketqua').innerHTML=a;
+                }
+                if(from=="meters" && to =="meters"){
+                    document.getElementById('ketqua').innerHTML=a;
+                }
+            }
+        </script>
+    </table>
+</body>
+</html>
