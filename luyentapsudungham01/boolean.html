@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <th>Enter 2 values</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input type="number" id="enter1" placeholder="Ex: 1">
+                <input type="number" id="enter2" placeholder="Ex: 2">
+                 <input type="button" value="Check" onclick="check()">
+            </td>
+            </tr>
+        </tbody>
+        <div id="ketqua"></div>
+    </table>
+        <script>
+            function check(){
+                let a = +document.getElementById('enter1').value;
+                let b = +document.getElementById("enter2").value;
+                let s;
+                if(a>b){
+                    alert(a+" lớn hơn "+b)
+                }
+                if(a<=b){
+                    alert("Vì giá trị 1 bé hơn bằng giá trị 2 bạn nhập vào nên tổng 2 giá trị là " + (s=(a+b)))
+                }
+            }
+        </script>
+</body>
+</html>

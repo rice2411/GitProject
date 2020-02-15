@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <th>Enter name of one Star</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input type="text" id ="enter" placeholder="Ex: Deneb or Ursa Major"></td>
+                <td><input type="button" id="click" onclick="search()" value="Search"></td>
+            </tr>
+        </tbody>
+    </table>
+    <div id="ketqua"></div>
+    <script>
+        let a = [ 'Polaris', 'Aldebaran', 'Deneb', 'Vega', 'Altair', 'Dubhe' ,'Regulus']
+        let b = [ 'Ursa Minor', 'Tarurus', 'Cygnus', 'Lyra', 'Aquila', 'Ursa Major', 'Leo']
+        function search(){
+            let c = document.getElementById('enter').value
+            for(let i = 0; i<a.length;i++){
+                if(c==a[i]){
+                    document.getElementById('ketqua').innerHTML= "In Latin is: " +b[i]
+                }
+                if(c==b[i]){
+                    document.getElementById('ketqua').innerHTML= "In English is: " +a[i]
+                }
+                if(c!=a[i] && c!=b[i]){
+                    document.getElementById('ketqua').innerHTML="Sorry we can't find that star"
+                }
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <th>Enter your value</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input type="number" id="enter" placeholder="Ex: 1"></td>
+                <td><input type="button" onclick="Add()" value="Add"></td>
+            </tr>
+            
+                
+          
+        </tbody>
+    </table>
+    <div id="ketqua"></div>
+    <script>
+        function Add(){
+            let a = +document.getElementById('enter').value;
+            let s
+            document.getElementById('ketqua').innerHTML="Your value had increased by 1 unit your value after increase is  " + (s=a+1);
+        }
+    </script>
+</body>
+</html>
