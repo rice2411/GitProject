@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac toe </title>
+</head>
+<body>
+    <h3>Caro Game</h3>
+    <div id="ketqua"></div>
+    <p id ='carogame'></p>
+    <input type='button' value='play' onclick='Change()'>
+    
+    <script>
+        let a = document.getElementById('carogame');
+        let board =[];
+        let data ="";
+        for( let  i= 0 ; i <3 ; i++){
+            board[i]= new Array(".",".",".");
+        }
+        for ( let i = 0; i <3; i ++){
+            data+="<br>";
+            for(let j = 0; j <3; j++){
+                data+=board[i][j] + "&nbsp;&nbsp;";
+            }
+        }
+       
+        
+        a.innerHTML= data;
+        let count=0
+        function Change(){
+            if(count%2==0){
+                do{
+                     x= (+prompt("Hàng:"))-1;
+                     y= (+prompt("Cột: "))-1;
+                    if(x>=3 || y >=3){
+                        alert('Nhập x hoặc y nhỏ hơn 4')
+                    }
+                }while(x>=3 || y >=3)   
+                if(board[x][y] == "x" || board[x][y] == "o") {
+                    alert('Vị trí đó đã được đánh')
+                    do{
+                     x= (+prompt("Hàng:"))-1;
+                     y= (+prompt("Cột: "))-1;
+                    if(x>=3 || y >=3){
+                        alert('Nhập x hoặc y nhỏ hơn 4')
+                    }
+                }while(x>=3 || y >=3)   
+                }                    
+                data="";
+                board[x][y] ="x";
+                for ( let i = 0; i < 3; i++){
+                data+="<br>"
+                for (let j =0; j <3 ;j++){
+                    data+=board[i][j] +"&nbsp;&nbsp;";
+                    
+                }
+            }   
+                    count++
+                 a.innerHTML= data;
+                 
+            }
+           else if(count%2!=0){
+                 do{
+                     x= (+prompt("Hàng:"))-1;
+                     y= (+prompt("Cột: "))-1;
+                    if(x>=3 || y >=3){
+                        alert('Nhập x hoặc y nhỏ hơn 4')
+                    }
+                }while(x>=3 || y >=3) 
+                if(board[x][y] == "x" || board[x][y] == "o") {
+                    alert('Vị trí đó đã được đánh')
+                    do{
+                     x= (+prompt("Hàng:"))-1;
+                     y= (+prompt("Cột: "))-1;
+                    if(x>=3 || y >=3){
+                        alert('Nhập x hoặc y nhỏ hơn 4')
+                    }
+                }while(x>=3 || y >=3)   
+                }                                
+                data="";
+                board[x][y] ="o";
+                for ( let i = 0; i < 3; i++){
+                data+="<br>"
+                for (let j =0; j <3 ;j++){
+                    data+=board[i][j] +"&nbsp;&nbsp;";
+                    
+                }
+            } count++
+                 a.innerHTML= data;
+            }  
+            function check(){
+           for(i=0;i<3;i++){
+               if(board[i][0]=="x" && board[i][1]=="x" && board[i][2]=="x" || board[i][0]=="o" && board[i][1]=="o" && board[i][2]=="o"){
+                   return true
+                   break
+               }
+           }
+           for(j=0;j<3;j++){
+               if(board[0][j]=="x" && board[1][j]=="x" && board[2][j]=="x" || board[0][j]=="o" && board[1][j]=="o" && board[2][j]=="o"){
+                   return true
+                   break
+               }
+           }
+           if(board[0][0]=="x" && board[1][1]=="x" && board[2][2]=="x" || board[0][0]=="o" && board[1][1]=="o" && board[2][2]=="o"){
+                   return true
+                   
+           }    
+            if(board[0][2]=="x" && board[1][1]=="x" && board[2][0]=="x" || board[0][2]=="o" && board[1][1]=="o" && board[2][0]=="o"){
+                   return true
+                   
+            }
+       }
+
+        
+
+        if(check()){
+            
+            if(count%2!=0){
+               document.getElementById("ketqua").innerHTML='Người chơi x chiến thắng'
+            }
+            if(count%2==0){
+               document.getElementById("ketqua").innerHTML='Người chơi o chiến thắng'
+            }
+        }             
+         
+        }    
+        
+         
+    </script>
+    <style>
+        h3{
+            text-align: center;
+            margin-top: 200px;
+            font-size: 40px;
+        }
+        p {
+            text-align: center;
+            font-size: 30px;
+            
+        }
+        input{
+            margin-left: 615px;
+            width: 100px;
+            height: 100px;
+           
+        }
+        body{
+            background-color:cyan
+        }
+        div{
+            text-align: center;
+            font-size: 30px;
+        }
+    </style>
+</body>
+</html>
