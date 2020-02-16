@@ -26,9 +26,11 @@
             for(let i = 0; i<a.length;i++){
                 if(c==a[i]){
                     document.getElementById('ketqua').innerHTML= "In Latin is: " +b[i]
+                        break
                 }
                 if(c==b[i]){
                     document.getElementById('ketqua').innerHTML= "In English is: " +a[i]
+                       break
                 }
                 if(c!=a[i] && c!=b[i]){
                     document.getElementById('ketqua').innerHTML="Sorry we can't find that star"
