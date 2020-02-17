@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let count=0;
+        
+        let a =['c', 's', 'c', '2', '6', '1']
+        for(let i =0; i<a.length;i++){
+            if(Number.isInteger(parseInt(a[i]))==true){
+                count++
+               
+            }
+            
+        }
+        document.write("Phần tử của mảng a là: " + a +"<br>") 
+        document.write('Mảng a có' + count+ " kí tự số ")
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Enter any characters fomr a to h</h3>
+    <input type="text" id="enter">
+    <input type="button" value="check" onclick="check()">
+    <div id="ketqua"></div>
+    <script>
+        let characters = ["a","b","c","d","e","f","g","h","a","a","b"];
+        function findCharacter(char){
+            let count=0;
+            for(let i = 0;i<characters.length;i++){
+                if(characters[i]==char){
+                    count++;
+                }
+            }
+            return count;
+        }
+        function check(){
+            let keyword = document.getElementById('enter').value;
+            let count = findCharacter(keyword);
+            if(count > 0){
+                document.getElementById('ketqua').innerHTML=b +"have been appear " + count +" times"
+            } else{
+                document.getElementById('ketqua').innerHTML=-1
+            }
+        }
+    </script>
+</body>
+</html>

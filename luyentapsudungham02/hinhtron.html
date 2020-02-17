@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Nhập bán kính</h3>
+    <input type="number" name="" id="number">
+    <input type="button" name="" id="" value="calculating" onclick="add()">
+    <div id="ketqua"></div>
+    <div id="ketqua1"></div>
+    <script>
+        function add(){
+            let a = document.getElementById('number').value 
+            document.getElementById('ketqua').innerHTML="Chu vi hình tròn là " + ((2*a)*Math.PI) +"<br>"
+            document.getElementById('ketqua1').innerHTML="Diện tích hình tròn là " + (Math.pow(a,2)*Math.PI)
+        }
+    </script>
+</body>
+</html>

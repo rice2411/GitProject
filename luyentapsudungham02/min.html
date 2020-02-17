@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Enter 3 value</h3>
+    <div id="a"></div>
+    <input type="number" value="" id="enter">
+    <input type="button" value="add" onclick="add()">
+    <input type="button" value="check" onclick="check()">
+    <div id="ketqua"></div>
+    <script>
+        let x=0
+        let a = new Array()
+        function add(){
+            a[x]=document.getElementById('enter').value;
+            x++;
+            document.getElementById("enter").value ='';
+            if(x==3){
+                document.getElementById("a").innerHTML='Click check'            
+                }
+        }
+        function check(){
+            let min = a[0]
+            for(let i =0; i < a.length; i ++){
+                if(a[i]<min){
+                    min=a[i]
+                }
+            }
+            document.getElementById("ketqua").innerHTML="The Minimum is " + min
+        }
+    </script>
+</body>
+</html>

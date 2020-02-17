@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Nhập một số</h3>
+    <input type="text" value="" id="enter">
+    <input type="button" value="check" onclick="check()">
+    <div id="ketqua"></div>
+    <script>
+        function num(){
+            let a = document.getElementById('enter').value;
+            if(a>0){
+                return true
+            } else{
+                return false
+            }
+        }
+        function check(){
+            if(num()){
+                document.getElementById("ketqua").innerHTML='Số bạn nhập là số dương'
+            } else {
+                document.getElementById("ketqua").innerHTML='Số bạn nhập không phải là số dương'
+            }
+        }
+    </script>
+</body>
+</html>

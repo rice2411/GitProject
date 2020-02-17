@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Enter 2 number</h3>
+    <div id="a"></div>
+    <input type="number" value="" id="enter">
+    <input type="button" value="add" onclick="add()">
+    <input type="button" value="switch" onclick="switchh()">
+    <div id ="ketqua"></div>
+    <script>
+        let x=0
+        let a = new Array()
+        function add(){
+            a[x]=document.getElementById('enter').value;
+            x++
+            document.getElementById('enter').value=""
+            if(x==2){
+                document.getElementById("a").innerHTML='Click switch'            
+                }
+        }
+        function switchh(){
+            let i =0
+            let b
+                b=a[i]
+                a[i]=a[i+1]
+                a[i+1]=b
+            document.getElementById('ketqua').innerHTML='Value has been switched '+ a[i]+" " + a[i+1]
+        }
+    </script>
+</body>
+</html>
