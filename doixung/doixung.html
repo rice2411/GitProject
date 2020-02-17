@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Enter one word</h3>
+    <input type="text"  id="enter">
+    <input type="button" value="check" onclick="check()">
+    <div id="ketqua"></div>
+    <script>
+        
+       function isPalindrome(){
+        let a   = document.getElementById('enter').value
+            for(let i = 0; i<a.length; i++){
+                    if(a[i]==a[a.length-1]){
+                        return true
+                    }else {
+                return false
+            } 
+            }
+       }
+       function check(){
+           if(isPalindrome()){
+                document.getElementById('ketqua').innerHTML="Là chuỗi đối xứng"
+           } else{
+               document.getElementById('ketqua').innerHTML="Là chuỗi không đối xứng"
+           }
+       }
+    </script>
+</body>
+</html>
