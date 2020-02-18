@@ -6,7 +6,10 @@
     <title>Document</title>
 </head>
 <body>
+    <h3>Các số nguyên tố nhỏ hơn 10000 là </h3>
+    
     <script>
+        
         function kiemtrasoNT(number){
             if(number<2){
                 return false;
@@ -21,13 +24,14 @@
                 }
             }
             return true;
-       }
-       let number=+prompt('Nhập số bất kì bé hơn 10000')
-       if(kiemtrasoNT(number)){
-           alert(number + " là số nugyên tố")
-       } else {
-           alert(number + " Không phải là số nguyên tố")
-       }
+       }    
+       let a=0
+           while(a<=10000){
+               if(kiemtrasoNT(a)){
+                   document.write(a+'<br>')
+               }
+               a++
+           }
     </script>
 </body>
 </html>
