@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Add new product</h3>
+    <table id='t3'>
+        <thead>
+            <th><input type="text" placeholder="SamSung" id="enter"></th>
+            <th><input type="button" value="Add" onclick="add()" id="i1"></th>
+        </thead>
+    </table>
+    <h3>Display All product</h3>
+    <div id="displayProduct"></div>  
+    <script>
+        let product =['Sony Xperia', 'Samsung Galaxy', 'Nokia 6', 'Xiaomi Redmi Note 4', 'Apple iPhone 6S', 'Xiaomi Mi 5s Plus', 'Apple iPhone 8 Plus', 'Fujitsu F-04E', 'Oppo A71'];
+        let count=0
+        function display(){
+            let data="<table id='t2'><th>Product Name</th><th>Action</th><th></th><th><div id='count'></div></th>"
+            for(let i = 0; i<product.length;i++){
+                data+= "<tr><td>"+product[i]+"</td><td><input type='button' value='Edit' onclick='edit("+i+")' id='i2'></td><td> <input type='button' value='Delete' onclick='del("+i+")' id='i2'></td></tr>"
+            }
+            data+="</table>"
+            document.getElementById('displayProduct').innerHTML=data;
+            count=product.length
+            document.getElementById('count').innerHTML=count+" products"
+        } 
+        display()
+        
+        function add(){
+            let  name = document.getElementById('enter').value;
+            product.push(name)
+            document.getElementById('enter').value=''
+            display()
+            count=product.length
+            document.getElementById('count').innerHTML=count+" products"
+        }
+            
+        function del(i){
+            product.splice(i,1)
+            display()
+            count=product.length
+            document.getElementById('count').innerHTML=count+" products"
+        }
+        function edit(i){
+            let name = prompt('Enter new product');
+           
+            if(name==null){
+                return product[i]
+            }
+            product[i]=name;
+            display()
+            document.getElementById('count').innerHTML=count+" products"
+        }
+        
+    </script>
+    <style>
+        #t2 tr:nth-child(even){
+				background-color: #f2f2f2;
+			}
+       #t2 tr:hover {
+				background-color: #ddd;
+			}
+       #t2{
+            width: 50%;
+        }
+        #i2 {
+            border-radius: 30px;
+            padding: 10px;
+            background-color: #42f545;
+        }
+        #i1{
+            border-radius: 30px;
+            padding: 10px;
+            background-color: #42f545;
+        }
+        #t3{
+            background-color: #ddd;
+        }
+    </style>
+</body>
+</html>
