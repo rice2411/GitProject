@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id='myCanvas' width="1368px" height="768px" style="border:1px solid #d3d3d3;"></canvas>
+    <script>
+      function Rectangle (x,y,wid, hei){
+            this.x=x;
+            this.y=y;
+            this.wid=wid;
+            this.hei=hei;
+            this.Perimeter=(wid+hei)*2
+            this.area=wid*hei;
+        }
+        function getRandomHex(){
+        return Math.floor(Math.random()*255);
+    }
+
+    function getRandomColor(){
+        var red = getRandomHex();
+        var green = getRandomHex();
+        var blue = getRandomHex();
+	    return "rgb(" + red + "," + blue + "," + green +")";
+    }
+    function createRectangle(){
+        var ctx = document.getElementById("myCanvas").getContext("2d");
+        var wid = +prompt('enter width');
+        var hei = +prompt('enter height');
+        var Perimeter=(wid+hei)*2;
+        var Area = wid*hei;
+        var color = getRandomColor();
+        var x = Math.random() * window.innerWidth;
+        var y = Math.random() * window.innerHeight;
+        var rec = new Rectangle(x,y,wid,hei);
+        ctx.beginPath();
+        ctx.fillStyle = color;
+        ctx.fill();
+        ctx.fillRect(rec.x,rec.y,rec.wid,rec.hei); 
+        document.write("<br>Perimeter is: "+Perimeter +"<br>");
+        document.write("Area is " +Area+"<br>");
+    }
+    createRectangle()
+    
+    </script>
+</body>
+</html>
