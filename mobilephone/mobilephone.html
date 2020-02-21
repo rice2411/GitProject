@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="1">
+        <thead>
+            <th><div id='namephone1'></div><input type="button" value="Check" onclick="checkon()"></th>
+            <th><div id='namephone2'></div></div><input type="button" value="Check" onclick="checkon1()"></th>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input type="button" value="TurnON" onclick="turnon()"><input type="button" value="TurnOFF" onclick="turnoff()"></td>
+                <td><input type="button" value="TurnON" onclick="turnon1()"><input type="button" value="TurnOFF" onclick="turnoff1()"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="Battery" onclick="checkbat()"></td>
+                <td><input type="button" value="Battery" onclick="checkbat1()"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="SendMess" onclick="send()"></td>
+                <td><input type="button" value="SendMess" onclick="send1()"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="CheckIB" onclick="check()"></td>
+                <td><input type="button" value="CheckIB" onclick="check1()"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="CheckSentMess" onclick="checkSentm()"></td>
+                <td><input type="button" value="CheckSentMess" onclick="checkSentm1()"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="ChargeBatt" onclick="ChargeBattt()"></td>
+                <td><input type="button" value="ChargeBatt" onclick="ChargeBattt1()"></td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+        function Mobile(name){
+            this.name=name;
+            this.battery = 100;
+            this.inbox = [];
+            this.sent = [];
+            this.power = false;
+
+            this.chargeBatt = function (){
+                return this.battery=100
+            }
+            this.powerPhone = function (){
+              return  this.power = true;
+            }
+            this.displayBattery = function(){            
+                return this.battery ;         
+            }           
+            this.isEmptyBattery = function(){
+                return this.battery == 0;
+            }
+            this.useBattery = function(){
+                this.battery -= 1;
+            }
+            this.sendMessage = function(msg, phone){                            
+                    this.useBattery();
+                    this.sent.push(msg);
+                    phone.receiveMessage(msg);       
+            }
+            this.checkSent = function(){            
+                    this.useBattery();
+                    return this.sent.join();
+            }
+            this.checkInbox = function(){              
+                    this.useBattery();
+                    return this.inbox.join();               
+            }
+            this.receiveMessage = function(msg){
+                this.inbox.push(msg);
+            }
+        }
+        let nokia = new Mobile('Nokia');
+        document.getElementById('namephone1').innerHTML=nokia.name;
+        function send(){
+            if(nokia.power==true){
+               if(!nokia.isEmptyBattery()){
+                let mes = prompt("Enter your mess")
+                alert('Your mess have been sent to Iphone6')
+                nokia.sendMessage(mes,ip6)
+               } else {
+                alert('Out of battery')
+               }
+            } else {
+                alert('You have to turn on the phone')
+            }
+        }
+        // NOKIA
+        function check(){
+           if(nokia.power==true){
+            if(!nokia.isEmptyBattery()){
+                let ib = nokia.checkInbox()
+                alert('You have mess'+ ib)
+            } else{
+                alert('Out of battery')
+            }
+           }else {
+                alert('You have to turn on the phone')
+            }
+        }
+        function checkSentm(){
+            if(nokia.power==true){
+               if(!nokia.isEmptyBattery()){
+                let sent = nokia.checkSent()
+                alert("Your sent mess " + sent)
+               } else {
+                alert('Out of battery')
+               }
+            }     else {
+                alert('You have to turn on the phone')
+            }   
+            }
+        function checkbat(){
+           if(nokia.power==true){
+            let bat = nokia.displayBattery();
+            alert("Your batt left " +bat+"%")
+           } else {
+                alert('You have to turn on the phone')
+            }   
+        }
+        function turnon (){   
+            return nokia.powerPhone()
+        }
+        function ChargeBattt(){
+            if(nokia.battery==100){
+                alert('Your battery is full')
+            } else {
+                alert('Your battery is charged')
+                return nokia.chargeBatt()              
+            }
+        }
+        function checkon(){
+            if(nokia.power==true){
+                alert('Your phone is ON')
+            } else {
+                alert('Your phone is OFF')
+            }
+        }
+        function turnoff(){
+            return nokia.power = false
+        }
+        // IPHONE6
+        let ip6 = new Mobile('Iphone6');
+        document.getElementById('namephone2').innerHTML=ip6.name;
+        function send1(){
+           if(ip6.power==true){
+            if(!ip6.isEmptyBattery()){
+                let mes = prompt("Enter your mess")
+            alert('Your mess have been sent to Nokia')
+            ip6.sendMessage(mes,nokia)
+            } else {
+                alert('Out of battery')
+            }
+           }else {
+                alert('You have to turn on the phone')
+            }  
+        }
+        function check1(){
+           if(ip6.power==true){
+            if(!ip6.isEmptyBattery()){
+                let ib = ip6.checkInbox()
+                alert('You have mess '+ ib )
+            } else{
+                alert('Out of battery')
+            }
+           }else {
+                alert('You have to turn on the phone')
+            }  
+        }
+        function checkSentm1(){
+            if(ip6.power==true){
+                if(!ip6.isEmptyBattery()){
+                    let sent = ip6.checkSent()
+                    alert("Your sent mess " + sent)
+                }else{
+                    alert('Out of battery')
+                }
+            }else {
+                alert('You have to turn on the phone')
+            }  
+        }
+        function checkbat1(){
+            if(ip6.power==true){
+                let bat = ip6.displayBattery();
+            alert("Your batt left " +bat+"%")
+            }else {
+                alert('You have to turn on the phone')
+            }  
+        }
+        function turnon1 (){
+            return ip6.powerPhone();
+        }
+        function ChargeBattt1(){
+            if(ip6.battery==100){
+                alert('Your battery is full')
+            } else {
+                alert('Your battery is charged')
+                return ip6.chargeBatt()               
+            }
+        }
+        function checkon1(){
+            if(ip6.power==true){
+                alert('Your phone is ON')
+            } else {
+                alert('Your phone is OFF')
+            }
+        }
+        function turnoff1(){
+            return ip6.power = false
+        }
+    </script>
+</body>
+</html>
