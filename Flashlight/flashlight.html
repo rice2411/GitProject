@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="image" src="flashlight-png-clip-art.png" onclick="flash()" width="300px"><br>
+    <input type="button" value="turnON" onclick="turnOn()">
+    <input type="button" value="turnOFF" onclick="turnOff()">
+    <input type="button" value="Check" onclick="check()">
+    <input type="button" value="Charge" onclick="Charge()">
+    <div id='c1'></div>
+    <script>
+     let Battery = function (){
+         this.setEnergy = function (energy){
+             this.energy=energy;
+         };
+         this.getEnergy = function (){
+             return this.energy;
+         };
+         this.decreaseEnergy = function (){
+             if(this.energy>0){
+                 this.energy--;
+             }
+         }
+         this.chargeEnergy = function(){
+             return this.energy=10
+         }
+     };
+     let flashLight = function (){
+         this.setBattery = function (battery){
+             this.battery=battery;
+         }
+         this.checkBattery = function (){
+             return this.battery.getEnergy();
+         };
+         this.light = function (){
+             if(this.status){
+                 alert('Lightning');
+                 document.getElementById('c1').innerHTML=('<style> body {background-color: white;}</style>')
+             }else{
+                 alert('Not Lightning');
+                 document.getElementById('c1').innerHTML=('<style> body {background-color: black;}</style>')
+             }
+         }
+         this.turnON=function(){
+             this.status = true;
+         }
+         this.turnOFF = function (){
+             this.status = false;
+         }
+         this.display = function (){
+             this.status = false
+             document.getElementById('c1').innerHTML=('<style> body {background-color: black;}</style>')    
+         }
+     }
+     let batt = new Battery();
+        batt.setEnergy(10);
+     let flash = new flashLight();
+     flash.setBattery(batt);
+     function check(){
+         let checkbat = flash.checkBattery();
+         alert('Your batt left ' +checkbat+"%")
+     }
+     function turnOn(){
+      if(batt.energy==0){
+          alert('Out of energy')
+          document.getElementById('c1').innerHTML=('<style> body {background-color: black;}</style>')
+      }else {
+         flash.turnON();
+         flash.light();      
+         batt.decreaseEnergy();
+      }
+     }
+     function turnOff(){
+      if(batt.energy==0){
+          alert('Out of energy')
+          document.getElementById('c1').innerHTML=('<style> body {background-color: black;}</style>')
+      } else {
+         flash.turnOFF();  
+         flash.light();
+         batt.decreaseEnergy();
+      }
+     }
+     function Charge(){
+         if(batt.energy==10){
+             alert('Battery is full')
+         } else {
+             batt.chargeEnergy();
+             alert('Battery have been charged')
+         }
+     }
+     flash.display()
+    </script>
+</body>
+</html>
