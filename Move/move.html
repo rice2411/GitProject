@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body> 
+    <div id='game'></div>
+    <script>
+        
+        function Champion (image, top,right,bottom, left, size){
+            this.image=image;
+            this.top=top;
+            this.right=right;
+            this.bottom=bottom;
+            this.left=left;
+            this.size=size;
+            this.getChampionElement= function (){
+                return '<img width="'+ this.size + '"' +
+                       ' height="'+ this.size + '"' +
+                       ' src="' + this.image +'"' +
+                       ' style="top: '+this.top+'px;right: '+this.right+'px;bottom: '+this.bottom+'px;left:'+this.left+'px;position:absolute;" />';
+            }
+            this.moveRight = function (){
+                this.left +=200;
+            }
+            this.moveLeft = function (){
+                this.left -=200
+            }
+            this.moveBot = function (){
+                this.top +=100;
+            }
+            this.moveTop = function (){
+                this.top-=100;
+            }
+        }
+        let count = 0
+       let leesin = new Champion ('download.jpg',30,30,30,30,300);
+       function start (){
+            if(count<5){
+                leesin.moveRight(); 
+                count++
+            }
+            if(count<10&&count>=5){
+                leesin.moveBot();
+                count++
+            }
+            if(count>=10&&count<15){
+                leesin.moveLeft();
+                count++
+            }
+            if(count>=15 && count<20){
+                leesin.moveTop();
+                count++
+            }
+            if(count>=20){
+                count=0
+            }
+           document.getElementById('game').innerHTML=leesin.getChampionElement();
+           setTimeout(start,500)
+       }
+       start()
+    </script>
+</body>
+</html>
