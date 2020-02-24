@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <table>
+       <thead>
+           <th> <div id='cat'></div></th>
+           <th></th>
+           <th><div id='mouse'></div></th>
+       </thead>
+       <tbody>
+           <tr>
+               <td style="text-align: center;"><input type="button" value="info" onclick="info()"></td>
+               <td><input type="button" value="hunter" onclick="hunter()"></td>
+               <td style="text-align: center;"><input type="button" value="info" onclick="info1()"></td>
+           </tr>
+           <tr>
+               <td><input type="button" value="Checkstatus" onclick="checkstatus()"></td>
+               <td></td>
+               <td><input type="button" value="Checkstatus" onclick="checkstatus1()"></td>
+           </tr>
+           <tr>
+               <td style="text-align: center;"><input type="button" value="Talk" onclick="talk()"></td>
+               <td></td>
+               <td style="text-align: center;"><input type="button" value="Talk" onclick="talk1()"></td>
+           </tr>
+       </tbody>
+   </table>
+    <script>
+        class mouse {
+            constructor(name,weight,speed,live){
+                this.name=name;
+                this.weight=weight;
+                this.speed=speed;
+                this.live=live;
+            }
+            status(){
+                if(this.live=='alive'){
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+            speak(){
+                alert('Chít chít');
+            }
+
+        }
+        let rat = new mouse("Rat",1,Math.random(),"alive");
+        class cat extends mouse {
+
+            catch(){
+                alert('You have one mouse')
+            }
+            eat(rat){
+                this.weight+= rat.weight
+            }
+            speak(){
+                alert('Meo Meo');
+            }
+        }
+        let Cat = new cat ('Cat',5,Math.random(),'alive')
+        document.getElementById('cat').innerHTML=Cat.name;
+        document.getElementById('mouse').innerHTML=rat.name;
+        function info(){
+            alert('Name:: '+Cat.name +' Weight: '+Cat.weight + ' Speed: '+Cat.speed)
+           
+        }
+        function hunter(){
+            if(Cat.speed > rat.speed){
+                Cat.eat(rat)
+                alert('Success, let check info');
+                rat.live="dead"        
+        } else {
+            alert(rat.name +" is escape, F5 to start again")
+        }
+        }
+        function info1(){
+            alert('Name:: '+rat.name +' Weight: '+rat.weight + ' Speed: '+rat.speed)
+        }
+        function checkstatus(){
+           if(Cat.status()){
+               alert(Cat.name +' is alive')
+           } else {
+            alert(Cat.name +' is dead')
+           }
+        }
+        function checkstatus1(){
+           if(rat.status()){
+               alert(rat.name +' is alive')
+           } else {
+            alert(rat.name +' is dead')
+           }
+        }
+        function talk(){
+            Cat.speak()
+        }
+        function talk1(){
+            rat.speak()
+        }
+    </script>
+</body>
+</html>
