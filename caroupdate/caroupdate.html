@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>SUPER CARO GAME</h1>
+    <div id='game'></div>
+    <style>
+        table {
+            margin-left: 380px;
+        }
+        h1 {
+            text-align:  center;
+            font-family: 'Courier New', Courier, monospace;
+        }
+    </style>
+    <script>
+        let sbl = function (symbol){
+            this.symbol=symbol;
+        }
+        let x = new sbl('X');
+        let o = new sbl("O")
+        let game;
+        let data = [];
+        let flag = false;
+        game = "<table border='1' width='600' height='600' cellspacing='0' cellpadding='3'>";
+        for(let i =0; i<20;i++){
+            game+="<tr>";
+            data[i]=new Array()
+        for(let j = 0; j<20;j++){
+            data[i][j]="&nbsp";
+            game+="<td onclick='play("+i+","+j+")'style='text-align: center;' width='20'>"+data[i][j]+"</td>";
+        }
+        game+="</tr>";
+        }
+        game+="</table>";
+        document.getElementById('game').innerHTML=game;
+        let count = 0
+        function play(i,j){
+        if(flag==false){
+            if(data[i][j]==x.symbol || data[i][j]==o.symbol){
+            alert('Cell is not empty')
+        } else {
+        if(count%2==0){
+            data[i][j]=x.symbol
+            game = "<table border='1' width='600' height='600' cellspacing='0' cellpadding='3'>";
+        for(let i =0; i<20;i++){
+            game+="<tr>";
+            for(let j =0;j<20;j++){
+                game+="<td onclick='play("+i+","+j+")'style='text-align: center;'width='20'>"+data[i][j]+"</td>";
+            }
+        }
+        count++
+        }
+       else if(count%2!=0){
+            data[i][j]=o.symbol
+            game = "<table border='1' width='600' height='600' cellspacing='0' cellpadding='3'>";
+        for(let i =0; i<20;i++){
+            game+="<tr>";
+            for(let j =0;j<20;j++){
+                game+="<td onclick='play("+i+","+j+")'style='text-align: center;'width='20'>"+data[i][j]+"</td>";
+            }
+        }
+        count++
+        }  
+        document.getElementById('game').innerHTML=game;
+        for(let i =0; i<20;i++){
+            for(let j=0; j<20;j++){
+                if(data[i][j]==x.symbol && data[i][j+1]==x.symbol && data[i][j+2]==x.symbol && data[i][j+3]==x.symbol && data[i][j+4]==x.symbol || data[i][j]==o.symbol && data[i][j+1]==o.symbol && data[i][j+2]==o.symbol && data[i][j+3]==o.symbol && data[i][j+4]==o.symbol){
+                   if(count%2!=0){
+                       alert('Player '+ x.symbol +" win")
+                       flag=true;
+                       break;
+                   } else{
+                       alert('Player '+ o.symbol +" win")
+                       flag=true;
+                       break;
+                   }
+                }
+                if(data[i][j]==x.symbol && data[i+1][j]==x.symbol && data[i+2][j]==x.symbol && data[i+3][j]==x.symbol && data[i+4][j]==x.symbol || data[i][j]==o.symbol && data[i+1][j]==o.symbol && data[i+2][j]==o.symbol && data[i+3][j]==o.symbol && data[i+4][j]==o.symbol){
+                    if(count%2!=0){
+                       alert('Player '+ x.symbol +" win")
+                       flag=true;
+                       break;
+                   } else{
+                       alert('Player '+ o.symbol +" win")
+                       flag=true;
+                       break;
+                   }
+                }
+                if(data[i][j]==x.symbol && data[i+1][j+1]==x.symbol && data[i+2][j+2]==x.symbol && data[i+3][j+3]==x.symbol && data[i+4][j+4]==x.symbol || data[i][j]==o.symbol && data[i+1][j+1]==o.symbol && data[i+2][j+2]==o.symbol && data[i+3][j+3]==o.symbol && data[i+4][j+4]==o.symbol || data[i][j]==x.symbol && data[i+1][j-1]==x.symbol && data[i+2][j-2]==x.symbol && data[i+3][j-3]==x.symbol && data[i+4][j-4]==x.symbol ||  data[i][j]==o.symbol && data[i+1][j-1]==o.symbol && data[i+2][j-2]==o.symbol && data[i+3][j-3]==o.symbol && data[i+4][j-4]==o.symbol){
+                    if(count%2!=0){
+                       alert('Player '+ x.symbol +" win")
+                       flag=true;
+                       break;
+                   } else{
+                       alert('Player '+ o.symbol +" win")
+                       flag=true;
+                       break;
+                   }
+                }
+            }
+        }
+    }
+        } else {
+            alert('Game is End, F5 to new Game')
+        }
+    }
+    </script>
+</body>
+</html>
