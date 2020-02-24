@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="1">
+        <thead>
+            <th><input type="image" src="lg.jpg"></th>
+            <th><input type="image" src="remote.jpg"></th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <input type="button" value="Turn" onclick="Turn()">
+                    <input type="button" value="Check" onclick="Check0()">
+                    <input type="button" value="Describe" onclick="Describe()">
+                    <input type="button" value="Move" onclick="Move()">
+                    <input type="button" value="VolumeUP" onclick="vlUp()">
+                    <input type="button" value="VolumeDOWN" onclick="vlD()">
+                </td>
+                <td>
+                    <input type="button" value="Turn" onclick="Turn1()">
+                    <input type="button" value="Move" onclick="Move1()">
+                    <input type="button" value="VolumeUP" onclick="vlUp1()">
+                    <input type="button" value="VolumeDOWN" onclick="vlD1()">
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <script> 
+        class TV {
+            constructor(name,status,volume,show){
+                this.name=name;
+                this.status=status;
+                this.volume=volume;
+                this.show=show;
+            }
+           turnON_OFF(){
+                if(this.status == false){
+                    return this.status=true;
+                } else {
+                    return this.status=false;
+                }
+           }
+           checkStatus(){
+               if(this.status==true){
+                   return true;
+               } else{
+                   return false;
+               }
+           }
+           describeChannel(){
+               return this.show
+           }
+           moveTo(number){
+                return this.show=number;
+           }
+           volumeUp(vl){
+                return this.volume+=vl;
+           }
+           volumeDown(vl){
+            return this.volume-=vl;
+           }
+           checkVolume(){
+               return this.volume;
+           }
+
+        }
+       class remote {
+           remoteMoveTo(number,tv){
+               return tv.show=number
+           }
+           remoteTurnOn_Off(tv){
+               if(tv.status==false){
+                   return tv.status=true;
+               } else {
+                return tv.status=false;
+               }
+           }
+           remoteVolumeUp(tv,vl){
+               return tv.volume+=vl;
+           }
+           remoteVolumeDown(tv,vl){
+               return tv.volume-=vl;
+           }
+       } 
+       let lg = new TV("LG",false,50,1)
+       let rmt = new remote();
+       function Turn(){
+           lg.turnON_OFF();
+           if(lg.status==true){
+               alert( "TV is ON");
+           } else {
+              alert( " TV is OFF");
+           }
+       }
+       function Check0(){
+           if(lg.checkStatus()){
+               alert('TV is ON, Volume: '+lg.checkVolume());
+           } else {
+               alert("Please turn on the TV");
+           }
+       }
+       function Describe(){
+           if(lg.checkStatus()){
+            alert('Tv is showing channel '+lg.describeChannel());
+           }else {
+               alert("Please turn on the TV");
+           }
+       }
+       function Move (){
+           if(lg.checkStatus()){
+                let num = prompt('Enter your channel you want to go');
+                lg.moveTo(num);
+                alert("Your channl have been changed");
+           }else {
+               alert("Please turn on the TV");
+           }
+       }
+       function vlUp(){
+           if(lg.checkStatus()){
+            if(lg.volume==100){
+                alert("Volume is maximum")
+            } else {
+                let vl;
+                do{
+                    vl = +prompt('How much do you want to up');
+                } while(lg.volume+vl>100)
+                lg.volumeUp(vl);
+                alert('Volume have been up');
+            }
+           }else {
+               alert("Please turn on the TV");
+           }
+       }
+       function vlD(){
+        if(lg.checkStatus()){
+            if(lg.volume==0){
+                alert("Volume is minimum")
+            } else {
+                let vl;
+                do{
+                    vl = +prompt('How much do you want to down');
+                } while(lg.volume-vl<0)
+                lg.volumeDown(vl);
+                alert('Volume have been down');
+            }
+           }else {
+               alert("Please turn on the TV");
+           }
+       }
+       function Turn1(){
+           rmt.remoteTurnOn_Off(lg);
+           if(lg.status==true){
+               alert( "TV is ON");
+           } else {
+              alert( " TV is OFF");
+           }
+       }
+       function Move1(){
+        if(lg.checkStatus()){
+                let num = prompt('Enter your channel you want to go');
+                rmt.remoteMoveTo(num,lg)
+                alert("Your channl have been changed");
+           }else {
+               alert("Please turn on the TV");
+           }
+       }
+       function vlD1(){
+        if(lg.checkStatus()){
+            if(lg.volume==0){
+                alert("Volume is minimum")
+            } else {
+                let vl;
+                do{
+                    vl = +prompt('How much do you want to down');
+                } while(lg.volume-vl<0);
+                rmt.remoteVolumeDown(lg,vl);
+                alert('Volume have been down');
+            }
+           }else {
+               alert("Please turn on the TV");
+           }
+       
+       }
+       function vlUp1(){
+           if(lg.checkStatus()){
+            if(lg.volume==100){
+                alert("Volume is maximum")
+            } else {
+                let vl;
+                do{
+                    vl = +prompt('How much do you want to up');
+                } while(lg.volume+vl>100);
+                rmt.remoteVolumeUp(lg,vl);
+                alert('Volume have been up');
+            }
+           }else {
+               alert("Please turn on the TV");
+           }
+       }
+    </script>
+</body>
+</html>
