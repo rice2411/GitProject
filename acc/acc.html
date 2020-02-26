@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function validateAcc(acc){
+           regexp= /^[_a-z0-9]{6,}$/;
+           if ( regexp.test(acc)){
+               alert('Account is correct')
+           } else {
+               alert('Account isnt correct')
+           }
+        }
+       let a= prompt('Enter Account')
+       validateAcc(a)
+    </script>
+</body>
+</html>
