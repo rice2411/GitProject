@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function validateEmail(email){
+           regexp= /^[A-Za-z0-9]+[A-Za-z0-9]*@[A-Za-z0-9]+(\.[A-Za-z0-9]+)$/;
+           if ( regexp.test(email)){
+               alert('Email is correct')
+           } else {
+               alert('Email isnt correct')
+           }
+        }
+       let a= prompt('Enter email')
+       validateEmail(a)
+    </script>
+</body>
+</html>
