@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var pattern = /([aoeiu])/i;
+        var pattern2 = /([^aoeiu\s\n\t\d])/i;
+        var x =  prompt('Nhập 1 câu')
+        var countpa = 0;
+        var countna = 0;
+
+        function countna1(str) {
+            for (var i = 0; i < str.length; i++) {
+                if (pattern.test(str[i])) {
+                    countna++
+                } else {
+                    continue;
+                }
+            }
+            return countna;
+        }
+
+        function countpa1(str) {
+            for (var i = 0; i < str.length; i++) {
+                if (pattern2.test(str[i])) {
+                    countpa++
+                } else {
+                    continue;
+                }
+            }
+            return countpa;
+        }
+
+        countna1(x);
+        countpa1(x);
+
+        alert(countna + ' nguyên âm');
+        alert(countpa + ' phụ âm');
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function validateDATE(str) {
+            var pattern = /^([1-31])+\/([1-12])+\/([0-9]{4})$/
+           
+            if (pattern.test(str)) {
+                alert('correct')
+            } else {
+                alert('wrong')
+            }
+        }
+        let a = prompt('enter day motnh year')
+        validateDATE(a)
+    </script>
+
+</body>
+
+</html>
